@@ -10,9 +10,9 @@ export const Navbar = () => {
                     <span className="brand-logo">mhavliczek</span>
                 </Link>
                 <div className="navbar-links">
-                    <Link to="/about" className="nav-item">About</Link>
-                    <Link to="/projects" className="nav-item">Projects</Link>
-                    <Link to="/contact" className="nav-item">Contact</Link>
+                    <Link to="/" className="nav-item">Inicio</Link>
+                    <Link to="/signup" className="nav-item">Registro</Link>
+                    <Link to="/login" className="nav-item">Login</Link>
                 </div>
             </div>
         </nav>
