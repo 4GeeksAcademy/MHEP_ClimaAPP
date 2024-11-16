@@ -1,0 +1,69 @@
+/* Fondo general */
+.fondo-inicio {
+    background: linear-gradient(135deg, #3498db, #9b59b6); /* Degradado de azul a púrpura */
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.contenedor-inicio {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Título principal */
+.titulo-inicio {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Texto destacado */
+.texto-destacado {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Línea divisoria */
+.linea-divisoria {
+    border-color: rgba(255, 255, 255, 0.5);
+    margin: 20px 0;
+}
+
+/* Botones */
+.botones-inicio .boton-inicio {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Botón de registro */
+.boton-registro {
+    background-color: #1abc9c; /* Verde azulado */
+    color: #fff;
+    border: none;
+}
+
+.boton-registro:hover {
+    background-color: #16a085; /* Verde oscuro */
+    transform: scale(1.05);
+}
+
+/* Botón de inicio de sesión */
+.boton-sesion {
+    background-color: #e74c3c; /* Rojo coral */
+    color: #fff;
+    border: none;
+}
+
+.boton-sesion:hover {
+    background-color: #c0392b; /* Rojo oscuro */
+    transform: scale(1.05);
+}
