@@ -86,6 +86,7 @@ def serve_any_other_file(path):
 
 #Registro de Usuario
 @app.route("/signup", methods=["POST"])
+@cross_origin()
 def signup():
     data = request.get_json()
     app.logger.info("Dato Recibido del registro: %s", data) 
@@ -104,7 +105,7 @@ def signup():
         nombre=nombre,
         apellido=apellido,
         ciudad=ciudad,
-        is_active=True
+        is_active=True,
         password=bcrypt.generate_password_hash(password).decode('utf-8'),
     )
     db.session.add(nuevo_usuario)
