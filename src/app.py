@@ -86,7 +86,6 @@ def serve_any_other_file(path):
 
 #Registro de Usuario
 @app.route("/signup", methods=["POST"])
-@cross_origin()
 def signup():
     data = request.get_json()
     app.logger.info("Dato Recibido del registro: %s", data) 
