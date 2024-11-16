@@ -7,14 +7,14 @@ const Inicio = () => {
   return (
     <div className="fondo-inicio">
       <Container className="contenedor-inicio">
-        <h1 className="titulo-inicio">¡BIENVENIDO A NUESTRA COMUNIDAD!</h1>
+        <h1 className="titulo-inicio">ULTIMO PROYECTO</h1>
         <h5 className="texto-destacado">Sistema de Autenticación con Python, Flask y React.js</h5>
         <p className="texto-destacado">
-          Conecta con amigos, comparte tus momentos y descubre nuevas experiencias.
+          Registro, Login y Backend
         </p>
         <hr className="linea-divisoria" />
         <p>
-          ¡Regístrate ahora y comienza a compartir tus momentos o inicia sesión si ya tienes una cuenta!
+          ¡Regístrate ahora!!
         </p>
         <p className="botones-inicio">
           <Link className="boton-inicio boton-registro" to="/signup" role="button">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useActions } from "../store/appContext.js";
 import { Modal, Button, Card, Form } from "react-bootstrap";
 
+
 const Signup = () => {
   const [formData, setFormData] = useState({
     email: "",
