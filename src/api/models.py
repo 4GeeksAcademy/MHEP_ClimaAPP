@@ -5,11 +5,11 @@ db = SQLAlchemy()
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(80), unique=False, nullable=False)
-    nombre = db.Column(db.String(50), nullable=True)
-    apellido = db.Column(db.String(50), nullable=True)
-    ciudad = db.Column(db.String(100), nullable=True)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    password = db.Column(db.String(80), nullable=False)
+    nombre = db.Column(db.String(50))
+    apellido = db.Column(db.String(50))
+    ciudad = db.Column(db.String(100))
+    is_active = db.Column(db.Boolean, nullable=False)
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -21,5 +21,5 @@ class User(db.Model):
             "nombre": self.nombre,
             "apellido": self.apellido,
             "ciudad": self.ciudad,
-            # do not serialize the password, its a security breach
+            # Password is excluded for security reasons
         }
