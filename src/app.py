@@ -1,5 +1,6 @@
 import os
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
@@ -10,6 +11,8 @@ from api.commands import setup_commands
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_bcrypt import Bcrypt
+
+
 
 # Configuración del entorno y parámetros
 ENV = os.getenv("FLASK_ENV", "development")
@@ -104,6 +107,29 @@ def login():
 @jwt_required()
 def logout():
     return jsonify({"msg": "Sesión cerrada exitosamente"}), 200
+@app.route("/google_login")
+def google_login():
+    if not google.authorized:
+        return redirect(url_for("google.login"))
+    resp = google.get("/plus/v1/people/me")
+    assert resp.ok, resp.text
+    user_info = resp.json()
+    
+    # Guardar o actualizar el usuario en la base de datos
+    user = User.query.filter_by(email=user_info['emails'][0]['value']).first()
+    if not user:
+        user = User(
+            email=user_info['emails'][0]['value'],
+            nombre=user_info['displayName'],
+            is_active=True
+        )
+        db.session.add(user)
+        db.session.commit()
+    
+    # Crear token de acceso
+    access_token = create_access_token(identity=user.id)
+    return jsonify({"token": access_token, "user_id": user.id}), 200
+
 
 # Endpoint privado
 @app.route("/private/<int:user_id>", methods=["GET"])

@@ -23,6 +23,10 @@ const Inicio = () => {
           <Link className="boton-inicio boton-sesion" to="/login" role="button">
             INICIAR SESIÓN
           </Link>
+          
+          <button className="boton-inicio" onClick={() => window.location.href = "/google_login"}>
+           Iniciar sesión con Google
+         </button>
         </p>
       </Container>
     </div>
